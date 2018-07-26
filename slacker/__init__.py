@@ -187,11 +187,14 @@ class Users(BaseAPI):
     def info(self, user):
         return self.get('users.info', params={'user': user})
 
+    def identity(self):
+        return self.get('users.identity')
+
     def list(self, presence=False):
         return self.get('users.list', params={'presence': int(presence)})
 
-    def identity(self):
-        return self.get('users.identity')
+    def lookup_by_email(self, email):
+        return self.get('users.lookupByEmail', params={'email': email})
 
     def set_active(self):
         return self.post('users.setActive')
